@@ -34,7 +34,7 @@ Our other hyperparameter setting was to use the top five models (excluding the `
 * Light GBM
 The winning model ended up being a `WeightedEnsemble` with a stack level of 3, but even then, it wasn't as accurate as the model with HPO\#1. This further evidenced the fact when tuning hyperparameters, having more time to test and validate more model options can yield better results.
 
-The largest downside of HPO\#1, however, was the fact that it two double the amount of time for the training to complete. This is definitely something that I will have to weigh as I continue to train other models in future projects.
+The largest downside of HPO\#1, however, was the fact that it two double the amount of time for the training to complete. This is definitely something that I will have to weigh as I continue to train other models in future projects, especially when I use services on AWS that charge on an hourly basis.
 
 
 ### If you were given more time with this dataset, where do you think you would spend more time?
