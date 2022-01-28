@@ -18,11 +18,11 @@ After the adding just the `hour` feature, the model went from a Kaggle score of 
 
 ## Hyper parameter tuning
 ### How much better did your model perform after trying different hyper parameters?
-After trying out various hyperparameter settings, my best model (HPO \#1)was able to achieve a score of `0.47933`, an improvement of 0.00163 from the new features model that used the original settings. 
+After trying out various hyperparameter settings, my best model (HPO \#1)was able to achieve a score of `0.47933`, an improvement of 0.00163 from the new features model that used the original settings.
 
-I believe that HPO \#1 scored the best because of how much time AutoGluon had to train the model with the data. This allowed the training process to run on more stack levels of more models. Going through some documentation by Cornell about [Ensembled Selection](https://www.cs.cornell.edu/~alexn/papers/shotgun.icml04.revised.rev2.pdf), it appears that such models are constructed from running all other models on the feature values, choosing the highest performing model, and then repeating the steps. With each round (stack level), the winning result is averaged into the results of the previous winners. 
+I believe that HPO \#1 scored the best because of how much time AutoGluon had to train the model with the data. This allowed the training process to run on more stack levels of more models. Going through some documentation by Cornell about [Ensembled Selection](https://www.cs.cornell.edu/~alexn/papers/shotgun.icml04.revised.rev2.pdf), it appears that such models are constructed from running all other models on the feature values, choosing the highest performing model, and then repeating the steps. With each round (stack level), the winning result is averaged into the results of the previous winners.
 
-However, we also had some hyperparameters settings that did not predict as well. 
+However, we also had some hyperparameters settings that did not predict as well.
 
 For instance, the second hyperparameter optimization attempt was to restrict the models to just the LightGBM models and select the one LGBM model whose individual hyperparameters yielded the best training score. Even when the best model turned out to be a WeightedEnsemble of LightGBM models (of different `max_levels` and `extra_trees` values), this one actually performed worse than the model with HPO\#1, and led me to believe that solely relying on LightGBM was not the ideal option.
 
@@ -34,7 +34,7 @@ Our other hyperparameter setting was to use the top five models (excluding the `
 * Light GBM
 The winning model ended up being a `WeightedEnsemble` with a stack level of 3, but even then, it wasn't as accurate as the model with HPO\#1. This further evidenced the fact when tuning hyperparameters, having more time to test and validate more model options can yield better results.
 
-The largest downside of HPO\#1, however, was the fact that it two double the amount of time for the training to complete. This is defintiely something that I will have to weigh as I continue to train other models in future projects.
+The largest downside of HPO\#1, however, was the fact that it two double the amount of time for the training to complete. This is definitely something that I will have to weigh as I continue to train other models in future projects.
 
 
 ### If you were given more time with this dataset, where do you think you would spend more time?
